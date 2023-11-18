@@ -25,7 +25,7 @@ export default config({
     blogs: collection({
       label: "Blogs",
       slugField: "slug",
-      path: "/src/content/blogs/*",
+      path: "/src/content/blogs/*/",
       schema: {
         slug: fields.slug({ name: { label: "Slug" }}),
         title: fields.text({ label: "Title" }),

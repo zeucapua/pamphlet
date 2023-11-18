@@ -1,7 +1,7 @@
 import { component, fields } from "@keystatic/core";
 import { solar_hero_preview } from "../components/previews.tsx";
 
-// schemas
+// schemas: exported for previews
 export const hero_schema = {
   headline: fields.text({ label: "Headline" }),
   tagline: fields.text({ label: "Headline" }),
