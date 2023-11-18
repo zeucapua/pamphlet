@@ -4,6 +4,13 @@
 [Keystatic](https://keystatic.com) for business and personal use. Built in CMS experience
 and customizable pages make this a great option!
 
+## Features
+
+- Pre-built page sections
+- Blog Authoring
+- Multiple Themes
+- (idea) CMS -> SaaS (Payment/Store Integrations)
+
 ## Always Free
 
 If you are a tinkerer, you can fork this repository as a base, as well as having an

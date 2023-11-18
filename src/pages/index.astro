@@ -1,7 +1,19 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import { reader, solar_componentBlocks_renderers } from "../lib/keystatic.tsx";
+import { DocumentRenderer } from "@keystatic/core/renderer";
+
+const landing = await reader.singletons.landing.read();
+const landing_body = await landing?.body();
+console.log({ landing, landing_body });
 ---
 
 <SiteLayout title="Pamphlet: Spreading the word!">
-  <h1>Hello</h1>
+  {
+    landing_body && 
+    <DocumentRenderer 
+      document={landing_body} 
+      componentBlocks={solar_componentBlocks_renderers}
+    />
+  }
 </SiteLayout>
