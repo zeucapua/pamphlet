@@ -1,4 +1,23 @@
 {% hero
-   headline="Spread the word!"
-   tagline="Pamphlet is an all in one website template for businesses and personal use. Made with Astro & Keystatic."
+   headline="Spread the word"
+   tagline="Pamphlet is an all-in-one website template with a CMS experience. Built with Astro and Keystatic."
    actions=[{title: "Get Started", url: "/get-started"}] /%}
+
+{% feature
+   side=true
+   headline="Deliver your message fast"
+   tagline="Astro as the web framework of choice makes your website as quick as it can be with no configuration needed!"
+   actions=[{title: "Get Started", url: "/get-started"}, {title: "How it works", url: "/specs"}]
+   images=[] /%}
+
+{% feature
+   side=false
+   headline="Built-in Git based CMS"
+   tagline="Writers and developers working in harmony with a configurable CMS solution using Keystatic"
+   actions=[{title: "Get Started", url: "/get-started"}, {title: "Read the docs", url: "/docs"}]
+   images=[] /%}
+
+{% cta
+   headline="It's time to ride"
+   tagline="All ready for your team to start spreading the word!"
+   actions=[{title: "Get Started", url: "/get-started"}, {title: "Read the docs", url: "/docs"}] /%}

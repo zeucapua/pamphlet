@@ -1,6 +1,11 @@
 import { component, fields } from "@keystatic/core";
 import { solar_hero_preview } from "../components/previews.tsx";
 
+export const IMAGE_CONFIGURATION = {
+  directory: "public/images/",
+  publicPath: "images/",
+}
+
 // schemas: exported for previews
 export const hero_schema = {
   headline: fields.text({ label: "Headline" }),
@@ -38,6 +43,38 @@ export const componentBlocks = {
           itemLabel: (props) => props.fields.title.value
         }
       ),
+    }
+  }),
+
+  feature: component({
+    label: "Feature Section",
+    preview: () => null, // TODO: create preview component
+    schema: {
+      side: fields.checkbox({
+        label: "Content Start",
+        description: "If checked,' 'content' will be first/left side of images"
+      }),
+      headline: fields.text({ label: "Headline" }),
+      tagline: fields.text({ label: "Tagline" }),
+      actions: fields.array(
+        fields.object({
+          title: fields.text({ label: "Title" }),
+          url: fields.url({ label: "URL" })
+        }),
+        {
+          label: "Actions",
+          itemLabel: (props) => props.fields.title.value
+        }
+      ),
+      images: fields.array(
+        fields.image({
+          label: "Image",
+          ...IMAGE_CONFIGURATION
+        }),
+        {
+          label: "Feature Images"
+        }
+      )
     }
   }),
 

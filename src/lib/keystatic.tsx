@@ -12,22 +12,61 @@ export const solar_componentBlocks_renderers = {
   hero: (props : { headline: string, tagline: string, actions: { title: string, url: string }[]}) => {
     const { headline, tagline, actions } = props;
     return (
-      <section className="flex flex-col gap-4 text-center">
-        <h1 className="text-5xl font-bold">{ headline }</h1>
-        <h2 className="text-2xl">{ tagline }</h2>
+      <section className="flex flex-col gap-4 text-center items-center h-full lg:py-16">
+          <h1 className="text-5xl font-bold">{ headline }</h1>
+          <h2 className="text-2xl">{ tagline }</h2>
+
+        <div className="flex flex-col lg:flex-row gap-4 mt-4">
         {
           actions.map( (action) => 
-            <a href={action.url ?? "/"}>{ action.title }</a>
+            <a href={action.url ?? "/"} className="bg-neutral-900 w-fit px-8 py-4 rounded-xl shadow-2xl border border-white hover:bg-white hover:text-neutral-900 transition-all duration-300 text-white border border-black">
+              { action.title }
+            </a>
           )
         }
+        </div>
       </section>
     )
   },
-  cta: (props) => {
-    console.log("Solar CTA", { props });
+  feature: (props) => {
+    // TODO: refactor with types
     return (
-      <section>
-        <p>Hi</p>
+      <section className="flex flex-col lg:flex-row">
+        <div className="lg:basis-1/2 flex flex-col gap-4 bg-neutral-700 p-8 m-8 rounded-lg text-white">
+          <h2 className="text-2xl font-bold">{ props.headline }</h2>
+          <p className="text-lg">{ props.tagline }</p>
+          <div className="flex flex-col lg:flex-row gap-4 mt-4">
+          {
+            props.actions.map( (action) => 
+              <a href={action.url ?? "/"} className="bg-neutral-900 w-fit px-8 py-4 rounded-xl shadow-2xl border border-white hover:bg-white hover:text-neutral-900 transition-all duration-300">
+                { action.title }
+              </a>
+            )
+          }
+          </div>
+        </div>
+
+        <div className={`${props.side && "order-first"} basis-1/2 p-8`}>
+          <p>Images here</p>
+        </div>
+      </section>
+    )
+  },
+  cta: (props : { headline: string, tagline: string, actions: { title: string, url: string }[]}) => {
+    const { headline, tagline, actions } = props;
+    return (
+      <section className="flex flex-col gap-4 text-center bg-neutral-700 rounded-xl p-16 text-white items-center">
+        <h1 className="text-5xl font-bold">{ headline }</h1>
+        <h2 className="text-2xl">{ tagline }</h2>
+        <div className="flex flex-col lg:flex-row gap-4 mt-4">
+        {
+          actions.map( (action) => 
+            <a href={action.url ?? "/"} className="bg-neutral-900 w-fit px-8 py-4 rounded-xl shadow-2xl border border-white hover:bg-white hover:text-neutral-900 transition-all duration-300">
+              { action.title }
+            </a>
+          )
+        }
+        </div>
       </section>
     )
   },

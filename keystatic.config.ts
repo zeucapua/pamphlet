@@ -1,6 +1,7 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 import { componentBlocks } from "./src/components/blocks";
 
+
 export default config({
   storage: { kind: "local" },
   singletons: {
